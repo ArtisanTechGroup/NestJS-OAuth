@@ -1,32 +1,30 @@
-<div>
-  <div>
-    <h1>Update Github Profile</h1>
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <input matInput placeholder="Username" formControlName="name" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Email" formControlName="email" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Blog" formControlName="blog" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Twitter@" formControlName="twitter" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Company" formControlName="company" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Location" formControlName="location" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Hireable" formControlName="hireable" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Bio" formControlName="bio" />
-      </mat-form-field>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+<div class="form-body">
+  <h1>Update Github Profile</h1>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Username" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Blog" formControlName="blog" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Twitter@" formControlName="twitter" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Company" formControlName="company" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Location" formControlName="location" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Hireable" formControlName="hireable" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Bio" formControlName="bio" />
+    </mat-form-field>
+    <button mat-raised-button color="#238636">Submit</button>
+  </form>
 </div>
