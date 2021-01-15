@@ -22,14 +22,25 @@
         type="email"
         [value]="(userData$ | async)?.email"
       />
+      <mat-error
+        *ngIf="formValidators.email.invalid && formValidators.email.touched"
+      >
+        Not a valid email
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="form-field">
-      <mat-label>Blog</mat-label>
-      <textarea
+      <mat-label>Blog URL</mat-label>
+      <input
         matInput
+        placeholder="Blog"
         formControlName="blog"
         [value]="(userData$ | async)?.blog"
-      ></textarea>
+      />
+      <mat-error
+        *ngIf="formValidators.blog.invalid && formValidators.blog.touched"
+      >
+        Not a valid URL
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="form-field">
       <mat-label>Twitter@</mat-label>
@@ -70,6 +81,11 @@
         formControlName="bio"
         [value]="(userData$ | async)?.bio"
       ></textarea>
+      <mat-error
+        *ngIf="formValidators.bio.invalid && formValidators.bio.touched"
+      >
+        Max 160 Characters
+      </mat-error>
     </mat-form-field>
     <button mat-raised-button>Submit</button>
   </form>
