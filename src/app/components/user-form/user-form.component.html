@@ -1,30 +1,84 @@
 <div class="form-body">
   <h1>Update Github Profile</h1>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
+  <form
+    *ngIf="userForm"
+    [formGroup]="userForm"
+    (ngSubmit)="onSubmit()"
+    class="form-container"
+  >
     <mat-form-field class="form-field">
-      <input matInput placeholder="Username" formControlName="name" />
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        [value]="(userData$ | async)?.name"
+      />
     </mat-form-field>
     <mat-form-field class="form-field">
-      <input matInput placeholder="Email" formControlName="email" />
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        type="email"
+        [value]="(userData$ | async)?.email"
+      />
     </mat-form-field>
     <mat-form-field class="form-field">
-      <input matInput placeholder="Blog" formControlName="blog" />
+      <mat-label>Blog</mat-label>
+      <textarea
+        matInput
+        formControlName="blog"
+        [value]="(userData$ | async)?.blog"
+      ></textarea>
     </mat-form-field>
     <mat-form-field class="form-field">
-      <input matInput placeholder="Twitter@" formControlName="twitter" />
+      <mat-label>Twitter@</mat-label>
+      <input
+        matInput
+        formControlName="twitter"
+        [value]="(userData$ | async)?.twitter"
+      />
     </mat-form-field>
     <mat-form-field class="form-field">
-      <input matInput placeholder="Company" formControlName="company" />
+      <mat-label>Company</mat-label>
+      <input
+        matInput
+        formControlName="company"
+        [value]="(userData$ | async)?.company"
+      />
     </mat-form-field>
     <mat-form-field class="form-field">
-      <input matInput placeholder="Location" formControlName="location" />
+      <mat-label>Location</mat-label>
+      <input
+        matInput
+        formControlName="location"
+        [value]="(userData$ | async)?.location"
+      />
     </mat-form-field>
     <mat-form-field class="form-field">
-      <input matInput placeholder="Hireable" formControlName="hireable" />
+      <mat-label>Hireable</mat-label>
+      <input
+        matInput
+        formControlName="hireable"
+        [value]="(userData$ | async)?.hireable"
+      />
     </mat-form-field>
     <mat-form-field class="form-field">
-      <input matInput placeholder="Bio" formControlName="bio" />
+      <mat-label>Bio</mat-label>
+      <textarea
+        matInput
+        formControlName="bio"
+        [value]="(userData$ | async)?.bio"
+      ></textarea>
     </mat-form-field>
-    <button mat-raised-button color="#238636">Submit</button>
+    <button mat-raised-button>Submit</button>
   </form>
 </div>
+
+<!-- <div class="test-container">
+  <div class="test-body">
+    <div>
+      <p>{{  }}</p>
+    </div>
+  </div>
+</div> -->
