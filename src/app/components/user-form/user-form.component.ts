@@ -15,13 +15,14 @@ export class UserFormComponent implements OnInit {
   userData$: Observable<IFormData>;
   validBlogUrl: string =
     '^((https?|ftp|smtp)://)?(www.)?[a-z0-9]+.[a-z]+(/[a-zA-Z0-9#]+/?)*$';
+  showSpinner: boolean = true;
   constructor(private fb: FormBuilder, private test: TestService) {}
 
   ngOnInit(): void {
     this.userData$ = this.test
       .getData()
       .pipe(tap((user) => this.userForm.patchValue(user)));
-
+    this.userData$.subscribe(() => (this.showSpinner = false));
     this.userForm = this.fb.group({
       name: '',
       email: ['', [Validators.email]],
