@@ -1,5 +1,4 @@
 <div class="form-body" *ngIf="pageLoad.showForm">
-  <h1>Update Github Profile</h1>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
     <mat-form-field class="form-field">
       <mat-label>Username</mat-label>
@@ -85,5 +84,4 @@
     <button mat-raised-button>Submit</button>
   </form>
 </div>
-
 <app-loading-spinner *ngIf="pageLoad.showSpinner"></app-loading-spinner>
