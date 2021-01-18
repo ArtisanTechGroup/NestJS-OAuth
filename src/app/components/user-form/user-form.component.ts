@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { IFormData } from '../../services/data/IFormData';
 import { TestService } from '../../services/test.service';
 
@@ -17,17 +18,19 @@ export class UserFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private test: TestService) {}
 
   ngOnInit(): void {
-    this.userData$ = this.test.getData();
-    console.log(this.userData$);
+    this.userData$ = this.test
+      .getData()
+      .pipe(tap((user) => this.userForm.patchValue(user)));
+
     this.userForm = this.fb.group({
       name: '',
-      email: ['', [Validators.required, Validators.email]],
-      blog: ['', [Validators.required, Validators.pattern(this.validBlogUrl)]],
+      email: ['', [Validators.email]],
+      blog: ['', [Validators.pattern(this.validBlogUrl)]],
       twitter: '',
       company: '',
       location: '',
       hireable: '',
-      bio: ['', [Validators.required, Validators.minLength(160)]],
+      bio: ['', [Validators.maxLength(160)]],
     });
   }
 
@@ -37,5 +40,9 @@ export class UserFormComponent implements OnInit {
       blog: this.userForm.get('blog'),
       bio: this.userForm.get('bio'),
     };
+  }
+
+  onSubmit() {
+    console.log(this.userForm.value);
   }
 }

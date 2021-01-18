@@ -13,4 +13,8 @@ export class TestService {
   getData(): Observable<IFormData> {
     return of(FormData).pipe(delay(1000));
   }
+
+  updateUser(): Observable<boolean> {
+    return of(true).pipe(delay(1000));
+  }
 }

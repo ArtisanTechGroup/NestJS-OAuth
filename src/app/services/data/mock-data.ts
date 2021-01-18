@@ -8,5 +8,5 @@ export const FormData: IFormData = {
   company: 'Artisan',
   location: 'Kansas City',
   hireable: 'Probably',
-  bio: 'Waabaaah, Get pitted',
+  bio: 'I am pretty cool',
 };
