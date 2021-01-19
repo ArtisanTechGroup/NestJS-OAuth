@@ -1,86 +1,91 @@
 <div class="form-body" *ngIf="pageLoad.showForm">
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
-    <mat-form-field class="form-field">
-      <mat-label>Username</mat-label>
-      <input
-        matInput
-        formControlName="name"
-        [value]="(userData$ | async)?.name"
-      />
-    </mat-form-field>
-    <mat-form-field class="form-field">
-      <mat-label>Email</mat-label>
-      <input
-        matInput
-        formControlName="email"
-        type="email"
-        [value]="(userData$ | async)?.email"
-      />
-      <mat-error
-        *ngIf="formValidators.email.invalid && formValidators.email.touched"
-      >
-        Not a valid email
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="form-field">
-      <mat-label>Blog URL</mat-label>
-      <input
-        matInput
-        placeholder="Blog"
-        formControlName="blog"
-        [value]="(userData$ | async)?.blog"
-      />
-      <mat-error
-        *ngIf="formValidators.blog.invalid && formValidators.blog.touched"
-      >
-        Not a valid URL
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="form-field">
-      <mat-label>Twitter@</mat-label>
-      <input
-        matInput
-        formControlName="twitter"
-        [value]="(userData$ | async)?.twitter"
-      />
-    </mat-form-field>
-    <mat-form-field class="form-field">
-      <mat-label>Company</mat-label>
-      <input
-        matInput
-        formControlName="company"
-        [value]="(userData$ | async)?.company"
-      />
-    </mat-form-field>
-    <mat-form-field class="form-field">
-      <mat-label>Location</mat-label>
-      <input
-        matInput
-        formControlName="location"
-        [value]="(userData$ | async)?.location"
-      />
-    </mat-form-field>
-    <mat-form-field class="form-field">
-      <mat-label>Hireable</mat-label>
-      <input
-        matInput
-        formControlName="hireable"
-        [value]="(userData$ | async)?.hireable"
-      />
-    </mat-form-field>
-    <mat-form-field class="form-field">
-      <mat-label>Bio</mat-label>
-      <textarea
-        matInput
-        formControlName="bio"
-        [value]="(userData$ | async)?.bio"
-      ></textarea>
-      <mat-error
-        *ngIf="formValidators.bio.invalid && formValidators.bio.touched"
-      >
-        Max 160 Characters
-      </mat-error>
-    </mat-form-field>
+    <div id="grid-left">
+      <mat-form-field class="form-field">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          [value]="(userData$ | async)?.name"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          [value]="(userData$ | async)?.email"
+        />
+        <mat-error
+          *ngIf="formValidators.email.invalid && formValidators.email.touched"
+        >
+          Not a valid email
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Blog URL</mat-label>
+        <input
+          matInput
+          placeholder="Blog"
+          formControlName="blog"
+          [value]="(userData$ | async)?.blog"
+        />
+        <mat-error
+          *ngIf="formValidators.blog.invalid && formValidators.blog.touched"
+        >
+          Not a valid URL
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Twitter@</mat-label>
+        <input
+          matInput
+          formControlName="twitter"
+          [value]="(userData$ | async)?.twitter"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Company</mat-label>
+        <input
+          matInput
+          formControlName="company"
+          [value]="(userData$ | async)?.company"
+        />
+      </mat-form-field>
+    </div>
+    <div class="grid-right">
+      <mat-form-field class="form-field">
+        <mat-label>Location</mat-label>
+        <input
+          matInput
+          formControlName="location"
+          [value]="(userData$ | async)?.location"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Hireable</mat-label>
+        <input
+          matInput
+          formControlName="hireable"
+          [value]="(userData$ | async)?.hireable"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Bio</mat-label>
+        <textarea
+          matInput
+          formControlName="bio"
+          [value]="(userData$ | async)?.bio"
+          style="height: 128px; background-color: rgba(128, 128, 128, 0.3)"
+        ></textarea>
+        <mat-error
+          *ngIf="formValidators.bio.invalid && formValidators.bio.touched"
+        >
+          Max 160 Characters
+        </mat-error>
+      </mat-form-field>
+    </div>
     <button mat-raised-button>Submit</button>
   </form>
 </div>
