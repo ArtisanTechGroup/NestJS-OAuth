@@ -57,6 +57,7 @@ export class UserFormComponent implements OnInit {
         text: 'Your account has been updated',
         showConfirmButton: false,
         timer: 2000,
+        background: 'gray',
       });
     } else {
       Swal.fire({
@@ -64,6 +65,7 @@ export class UserFormComponent implements OnInit {
         text: 'check your content',
         showConfirmButton: false,
         timer: 2000,
+        background: 'gray',
       });
     }
     console.log(this.userForm);
