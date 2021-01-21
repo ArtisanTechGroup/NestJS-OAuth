@@ -41,10 +41,28 @@
   display: inline;
 }
 
+.input-header {
+  color: #58a6ff;
+}
+
+#example-radio-group-label {
+  font-size: 11px;
+  color: #58a6ff;
+}
+
 .text-box {
   width: 100px;
   height: 100px;
   background-color: gray;
+}
+
+.radio-btn {
+  color: white;
+  font-family: "Bodoni Moda", serif;
+}
+
+.add-space {
+  padding-left: 10px;
 }
 
 input,
@@ -60,18 +78,10 @@ button {
   font-family: "Bodoni Moda", serif;
 }
 
-::ng-deep .mat-form-field-label {
-  color: #58a6ff !important;
-}
-
 ::ng-deep.mat-form-field-underline {
   background-color: white !important;
 }
 
-::ng-deep.mat-form-field-ripple {
-  background-color: white !important;
-}
-
-::ng-deep.mat-form-field-ripple {
-  background-color: #58a6ff !important;
+::ng-deep.mat-radio-outer-circle {
+  border-color: white;
 }

@@ -2,7 +2,7 @@
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
     <div id="grid-left">
       <mat-form-field class="form-field">
-        <mat-label>Username</mat-label>
+        <mat-label class="input-header">Username</mat-label>
         <input
           matInput
           formControlName="userName"
@@ -10,7 +10,7 @@
         />
       </mat-form-field>
       <mat-form-field class="form-field">
-        <mat-label>Email</mat-label>
+        <mat-label class="input-header">Email</mat-label>
         <input
           matInput
           formControlName="userEmail"
@@ -26,7 +26,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="form-field">
-        <mat-label>Blog URL</mat-label>
+        <mat-label class="input-header">Blog URL</mat-label>
         <input
           matInput
           placeholder="Blog"
@@ -40,7 +40,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="form-field">
-        <mat-label>Twitter@</mat-label>
+        <mat-label class="input-header">Twitter@</mat-label>
         <input
           matInput
           formControlName="twitterHandle"
@@ -48,7 +48,7 @@
         />
       </mat-form-field>
       <mat-form-field class="form-field">
-        <mat-label>Company</mat-label>
+        <mat-label class="input-header">Company</mat-label>
         <input
           matInput
           formControlName="company"
@@ -58,7 +58,7 @@
     </div>
     <div class="grid-right">
       <mat-form-field class="form-field">
-        <mat-label>Location</mat-label>
+        <mat-label class="input-header">Location</mat-label>
         <input
           matInput
           formControlName="location"
@@ -72,17 +72,9 @@
           formControlName="hireable"
           [value]="(userData$ | async)?.hireable"
         /> -->
-      <mat-radio-group
-        class="radio-btn"
-        formControlName="hireable"
-        [value]="(userData$ | async)?.hireable"
-      >
-        <mat-radio-button value="true">I need a job</mat-radio-button>
-        <mat-radio-button value="false">I have a job</mat-radio-button>
-      </mat-radio-group>
       <!-- </mat-form-field> -->
       <mat-form-field class="form-field">
-        <mat-label>Bio</mat-label>
+        <mat-label class="input-header">Bio</mat-label>
         <textarea
           matInput
           formControlName="bio"
@@ -95,6 +87,20 @@
           Max 160 Characters
         </mat-error>
       </mat-form-field>
+      <label id="example-radio-group-label">Hireable</label>
+      <br />
+      <mat-radio-group
+        formControlName="hireable"
+        [value]="(userData$ | async)?.hireable"
+        color="primary"
+      >
+        <mat-radio-button class="radio-btn" value="true"
+          >I need a job</mat-radio-button
+        >
+        <mat-radio-button class="radio-btn add-space" value="false"
+          >I have a job</mat-radio-button
+        >
+      </mat-radio-group>
     </div>
     <button mat-raised-button>Submit</button>
   </form>

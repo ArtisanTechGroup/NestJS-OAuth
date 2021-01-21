@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
@@ -31,6 +32,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatProgressSpinnerModule,
     SweetAlert2Module,
     MatIconModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
