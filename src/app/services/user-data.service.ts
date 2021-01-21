@@ -8,13 +8,17 @@ import { delay } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UserDataService {
-  constructor() {}
+  data: IFormData;
+  constructor() {
+    this.data = { ...FormData };
+  }
 
   getData(): Observable<IFormData> {
     return of(FormData).pipe(delay(3000));
   }
 
-  updateUser(): Observable<boolean> {
+  updateUser(updatedUser: IFormData): Observable<boolean> {
+    this.data = { ...updatedUser };
     return of(true).pipe(delay(3000));
   }
 }
