@@ -79,10 +79,18 @@ button {
   font-family: "Bodoni Moda", serif;
 }
 
+/* 
+  Without this there is no line color for mat-input before 
+  the user clicks on the input to focus
+*/
 ::ng-deep.mat-form-field-underline {
   background-color: white !important;
 }
 
+/* 
+  Without this there is no border color for radio button 
+  the user clicks on the radio button to focus
+*/
 ::ng-deep.mat-radio-outer-circle {
   border-color: white;
 }
