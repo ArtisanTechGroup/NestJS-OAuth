@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IFormData } from '../../services/data/IFormData';
-import { TestService } from '../../services/test.service';
+import { UserDataService } from '../../services/userData.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -20,7 +20,7 @@ export class UserFormComponent implements OnInit {
     showSpinner: true,
     showForm: false,
   };
-  constructor(private fb: FormBuilder, private test: TestService) {}
+  constructor(private fb: FormBuilder, private test: UserDataService) {}
 
   ngOnInit(): void {
     this.userData$ = this.test
