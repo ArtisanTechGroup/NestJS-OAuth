@@ -65,14 +65,6 @@
           [value]="(userData$ | async)?.location"
         />
       </mat-form-field>
-      <!-- <mat-form-field class="form-field">
-        <mat-label>Hireable</mat-label> -->
-      <!-- <input
-          matInput
-          formControlName="hireable"
-          [value]="(userData$ | async)?.hireable"
-        /> -->
-      <!-- </mat-form-field> -->
       <mat-form-field class="form-field">
         <mat-label class="input-header">Bio</mat-label>
         <textarea
@@ -87,20 +79,22 @@
           Max 160 Characters
         </mat-error>
       </mat-form-field>
-      <label id="example-radio-group-label">Hireable</label>
-      <br />
-      <mat-radio-group
-        formControlName="hireable"
-        [value]="(userData$ | async)?.hireable"
-        color="primary"
-      >
-        <mat-radio-button class="radio-btn" value="true"
-          >I need a job</mat-radio-button
+      <div class="radio-container">
+        <mat-radio-group
+          formControlName="hireable"
+          [value]="(userData$ | async)?.hireable"
+          color="primary"
         >
-        <mat-radio-button class="radio-btn add-space" value="false"
-          >I have a job</mat-radio-button
-        >
-      </mat-radio-group>
+          <label id="example-radio-group-label">Hireable</label>
+          <br />
+          <mat-radio-button class="radio-btn" value="true"
+            >I need a job</mat-radio-button
+          >
+          <mat-radio-button class="radio-btn add-space" value="false"
+            >I have a job</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
     </div>
     <button mat-raised-button>Submit</button>
   </form>

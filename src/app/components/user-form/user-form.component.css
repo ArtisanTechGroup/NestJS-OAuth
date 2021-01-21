@@ -59,6 +59,7 @@
 .radio-btn {
   color: white;
   font-family: "Bodoni Moda", serif;
+  margin-top: -20px;
 }
 
 .add-space {
@@ -84,4 +85,8 @@ button {
 
 ::ng-deep.mat-radio-outer-circle {
   border-color: white;
+}
+
+.radio-container {
+  margin-top: -7px;
 }
