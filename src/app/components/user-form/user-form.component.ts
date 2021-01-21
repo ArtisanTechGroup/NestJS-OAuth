@@ -32,19 +32,19 @@ export class UserFormComponent implements OnInit {
       )
     );
     this.userForm = this.fb.group({
-      name: '',
-      email: ['', [Validators.email]],
+      userName: '',
+      userEmail: ['', [Validators.email]],
       blog: ['', [Validators.pattern(this.validBlogUrl)]],
-      twitter: '',
+      twitterHandle: '',
       company: '',
       location: '',
-      hireable: '',
+      hireable: false,
       bio: ['', [Validators.maxLength(160)]],
     });
   }
   get formValidators() {
     return {
-      email: this.userForm.get('email'),
+      userEmail: this.userForm.get('userEmail'),
       blog: this.userForm.get('blog'),
       bio: this.userForm.get('bio'),
     };

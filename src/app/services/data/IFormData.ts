@@ -1,10 +1,10 @@
 export interface IFormData {
-  name: string;
-  email: string;
+  userName: string;
+  userEmail: string;
   blog: string;
-  twitter: string;
+  twitterHandle: string;
   company: string;
   location: string;
-  hireable: string;
+  hireable: boolean;
   bio: string;
 }

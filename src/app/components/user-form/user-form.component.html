@@ -5,20 +5,22 @@
         <mat-label>Username</mat-label>
         <input
           matInput
-          formControlName="name"
-          [value]="(userData$ | async)?.name"
+          formControlName="userName"
+          [value]="(userData$ | async)?.userName"
         />
       </mat-form-field>
       <mat-form-field class="form-field">
         <mat-label>Email</mat-label>
         <input
           matInput
-          formControlName="email"
+          formControlName="userEmail"
           type="email"
-          [value]="(userData$ | async)?.email"
+          [value]="(userData$ | async)?.userEmail"
         />
         <mat-error
-          *ngIf="formValidators.email.invalid && formValidators.email.touched"
+          *ngIf="
+            formValidators.userEmail.invalid && formValidators.userEmail.touched
+          "
         >
           Not a valid email
         </mat-error>
@@ -41,8 +43,8 @@
         <mat-label>Twitter@</mat-label>
         <input
           matInput
-          formControlName="twitter"
-          [value]="(userData$ | async)?.twitter"
+          formControlName="twitterHandle"
+          [value]="(userData$ | async)?.twitterHandle"
         />
       </mat-form-field>
       <mat-form-field class="form-field">
@@ -63,14 +65,22 @@
           [value]="(userData$ | async)?.location"
         />
       </mat-form-field>
-      <mat-form-field class="form-field">
-        <mat-label>Hireable</mat-label>
-        <input
+      <!-- <mat-form-field class="form-field">
+        <mat-label>Hireable</mat-label> -->
+      <!-- <input
           matInput
           formControlName="hireable"
           [value]="(userData$ | async)?.hireable"
-        />
-      </mat-form-field>
+        /> -->
+      <mat-radio-group
+        class="radio-btn"
+        formControlName="hireable"
+        [value]="(userData$ | async)?.hireable"
+      >
+        <mat-radio-button value="true">I need a job</mat-radio-button>
+        <mat-radio-button value="false">I have a job</mat-radio-button>
+      </mat-radio-group>
+      <!-- </mat-form-field> -->
       <mat-form-field class="form-field">
         <mat-label>Bio</mat-label>
         <textarea
