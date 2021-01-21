@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IFormData } from '../../services/data/IFormData';
-import { UserDataService } from '../../services/userData.service';
+import { UserDataService } from '../../services/user-data.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -32,20 +32,20 @@ export class UserFormComponent implements OnInit {
       )
     );
     this.userForm = this.fb.group({
-      userName: '',
-      userEmail: ['', [Validators.email]],
-      blog: ['', [Validators.pattern(this.validBlogUrl)]],
+      name: '',
+      email: ['', [Validators.email]],
+      blogUrl: ['', [Validators.pattern(this.validBlogUrl)]],
       twitterHandle: '',
       company: '',
       location: '',
-      hireable: false,
+      hireable: '',
       bio: ['', [Validators.maxLength(160)]],
     });
   }
   get formValidators() {
     return {
-      userEmail: this.userForm.get('userEmail'),
-      blog: this.userForm.get('blog'),
+      email: this.userForm.get('email'),
+      blogUrl: this.userForm.get('blogUrl'),
       bio: this.userForm.get('bio'),
     };
   }
@@ -53,7 +53,6 @@ export class UserFormComponent implements OnInit {
     if (this.userForm.status === 'VALID') {
       Swal.fire({
         icon: 'success',
-        title: 'Wow',
         text: 'Your account has been updated',
         showConfirmButton: false,
         timer: 2000,
@@ -62,7 +61,7 @@ export class UserFormComponent implements OnInit {
     } else {
       Swal.fire({
         icon: 'error',
-        text: 'check your content',
+        text: 'Check your content',
         showConfirmButton: false,
         timer: 2000,
         background: 'gray',

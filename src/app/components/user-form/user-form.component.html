@@ -5,22 +5,20 @@
         <mat-label class="input-header">Username</mat-label>
         <input
           matInput
-          formControlName="userName"
-          [value]="(userData$ | async)?.userName"
+          formControlName="name"
+          [value]="(userData$ | async)?.name"
         />
       </mat-form-field>
       <mat-form-field class="form-field">
         <mat-label class="input-header">Email</mat-label>
         <input
           matInput
-          formControlName="userEmail"
+          formControlName="email"
           type="email"
-          [value]="(userData$ | async)?.userEmail"
+          [value]="(userData$ | async)?.email"
         />
         <mat-error
-          *ngIf="
-            formValidators.userEmail.invalid && formValidators.userEmail.touched
-          "
+          *ngIf="formValidators.email.invalid && formValidators.email.touched"
         >
           Not a valid email
         </mat-error>
@@ -30,11 +28,13 @@
         <input
           matInput
           placeholder="Blog"
-          formControlName="blog"
-          [value]="(userData$ | async)?.blog"
+          formControlName="blogUrl"
+          [value]="(userData$ | async)?.blogUrl"
         />
         <mat-error
-          *ngIf="formValidators.blog.invalid && formValidators.blog.touched"
+          *ngIf="
+            formValidators.blogUrl.invalid && formValidators.blogUrl.touched
+          "
         >
           Not a valid URL
         </mat-error>
@@ -80,17 +80,19 @@
         </mat-error>
       </mat-form-field>
       <div class="radio-container">
-        <mat-radio-group
-          formControlName="hireable"
-          [value]="(userData$ | async)?.hireable"
-          color="primary"
-        >
+        <mat-radio-group formControlName="hireable" color="primary">
           <label id="example-radio-group-label">Hireable</label>
           <br />
-          <mat-radio-button class="radio-btn" value="true"
+          <mat-radio-button
+            [value]="(userData$ | async)?.hireable"
+            class="radio-btn"
+            value="true"
             >I need a job</mat-radio-button
           >
-          <mat-radio-button class="radio-btn add-space" value="false"
+          <mat-radio-button
+            [value]="(userData$ | async)?.hireable"
+            class="radio-btn add-space"
+            value="false"
             >I have a job</mat-radio-button
           >
         </mat-radio-group>
