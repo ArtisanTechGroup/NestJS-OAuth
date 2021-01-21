@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IFormData } from '../../services/data/IFormData';
 import { UserDataService } from '../../services/user-data.service';
+import { Constants } from '../constants/constants';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -50,7 +51,7 @@ export class UserFormComponent implements OnInit {
     };
   }
   onSubmit() {
-    if (this.userForm.status === 'VALID') {
+    if (this.userForm.status === Constants.isValid) {
       Swal.fire({
         icon: 'success',
         text: 'Your account has been updated',
