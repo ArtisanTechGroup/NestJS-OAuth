@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IFormData } from '../../services/data/IFormData';
 import { UserDataService } from '../../services/user-data.service';
-import { Constants } from '../constants/constants';
+import { formValidityValue } from '../constants/form';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,21 +17,12 @@ export class UserFormComponent implements OnInit {
   userData$: Observable<IFormData>;
   validBlogUrl: string =
     '^((https?|ftp|smtp)://)?(www.)?[a-z0-9]+.[a-z]+(/[a-zA-Z0-9#]+/?)*$';
-  pageLoad = {
-    showSpinner: true,
-    showForm: false,
-  };
   constructor(private fb: FormBuilder, private test: UserDataService) {}
 
   ngOnInit(): void {
     this.userData$ = this.test
       .getData()
       .pipe(tap((user) => this.userForm.patchValue(user)));
-    this.userData$.subscribe(
-      () => (
-        (this.pageLoad.showSpinner = false), (this.pageLoad.showForm = true)
-      )
-    );
     this.userForm = this.fb.group({
       name: '',
       email: ['', [Validators.email]],
@@ -50,8 +41,9 @@ export class UserFormComponent implements OnInit {
       bio: this.userForm.get('bio'),
     };
   }
+
   onSubmit() {
-    if (this.userForm.status === Constants.isValid) {
+    if (this.userForm.status === formValidityValue) {
       Swal.fire({
         icon: 'success',
         text: 'Your account has been updated',
@@ -68,6 +60,6 @@ export class UserFormComponent implements OnInit {
         background: 'gray',
       });
     }
-    console.log(this.userForm);
+    console.log(this.userForm.value);
   }
 }
