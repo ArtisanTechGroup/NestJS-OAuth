@@ -59,6 +59,7 @@ export class UserFormComponent implements OnInit {
         timer: 2000,
         background: 'gray',
       });
+      return;
     }
     console.log(this.userForm.value);
   }
