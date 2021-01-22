@@ -1,3 +1,8 @@
+.image-container {
+  text-align: center;
+  padding-top: 2%;
+}
+
 .form-body {
   margin-top: 20px;
   padding: 20px 20px;
@@ -51,9 +56,8 @@
 }
 
 .text-box {
-  width: 100px;
-  height: 100px;
-  background-color: gray;
+  height: 128px;
+  background-color: rgba(128, 128, 128, 0.3);
 }
 
 .radio-btn {
@@ -70,6 +74,11 @@ input,
 textarea {
   color: white;
   font-family: "Bodoni Moda", serif;
+  font-size: 15px;
+}
+
+.radio-container {
+  margin-top: -7px;
 }
 
 button {
@@ -93,8 +102,4 @@ button {
 */
 ::ng-deep.mat-radio-outer-circle {
   border-color: white;
-}
-
-.radio-container {
-  margin-top: -7px;
 }
