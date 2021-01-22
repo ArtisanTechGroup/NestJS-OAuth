@@ -14,11 +14,11 @@ export class UserDataService {
   }
 
   getData(): Observable<IFormData> {
-    return of(FormData).pipe(delay(3000));
+    return of(FormData).pipe(delay(1000));
   }
 
   updateUser(updatedUser: IFormData): Observable<boolean> {
     this.data = { ...updatedUser };
-    return of(true).pipe(delay(3000));
+    return of(true).pipe(delay(1000));
   }
 }
