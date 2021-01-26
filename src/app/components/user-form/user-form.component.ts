@@ -61,6 +61,6 @@ export class UserFormComponent implements OnInit {
       });
       return;
     }
-    console.log(this.userForm.value);
+    this.test.updateUser(this.userForm.value);
   }
 }

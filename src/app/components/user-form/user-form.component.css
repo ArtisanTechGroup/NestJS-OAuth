@@ -88,18 +88,16 @@ button {
   font-family: "Bodoni Moda", serif;
 }
 
-/* 
-  Without this there is no line color for mat-input before 
-  the user clicks on the input to focus
+/* TODO:
+  Towards the end of the project if I have time I need
+  to learn how to step down in ng-classes to reach the element I need
+  to change the styles to. But for now the ::ng-deep is helping to override
+  current limitations with angular material custom themes
 */
 ::ng-deep.mat-form-field-underline {
   background-color: white !important;
 }
 
-/* 
-  Without this there is no border color for radio button 
-  the user clicks on the radio button to focus
-*/
 ::ng-deep.mat-radio-outer-circle {
   border-color: white;
 }
