@@ -17,10 +17,10 @@ export class UserFormComponent implements OnInit {
   userData$: Observable<IFormData>;
   validBlogUrl: string =
     '^((https?|ftp|smtp)://)?(www.)?[a-z0-9]+.[a-z]+(/[a-zA-Z0-9#]+/?)*$';
-  constructor(private fb: FormBuilder, private test: UserDataService) {}
+  constructor(private fb: FormBuilder, private userService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userData$ = this.test
+    this.userData$ = this.userService
       .getData()
       .pipe(tap((user) => this.userForm.patchValue(user)));
     this.userForm = this.fb.group({
@@ -61,6 +61,6 @@ export class UserFormComponent implements OnInit {
       });
       return;
     }
-    this.test.updateUser(this.userForm.value);
+    this.userService.updateUser(this.userForm.value);
   }
 }
