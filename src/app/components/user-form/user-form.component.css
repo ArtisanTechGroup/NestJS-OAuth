@@ -1,0 +1,103 @@
+.image-container {
+  text-align: center;
+  padding-top: 2%;
+}
+
+.form-body {
+  margin-top: 20px;
+  padding: 20px 20px;
+  max-width: 900px;
+  border: 1px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 3px #58a6ff;
+  background-color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-body:hover {
+  border: 1px solid white;
+  border-radius: 15px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 10px 3px #58a6ff;
+  }
+  70% {
+    box-shadow: 0px 0px 10px 6px #58a6ff;
+  }
+  100% {
+    box-shadow: 0px 0px 10px 3px #58a6ff;
+  }
+}
+
+.form-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "grid-let" "grid-right";
+  grid-column-gap: 0.5rem;
+}
+
+.form-field {
+  display: inline;
+}
+
+.input-header {
+  color: #58a6ff;
+}
+
+#example-radio-group-label {
+  font-size: 11px;
+  color: #58a6ff;
+}
+
+.text-box {
+  height: 128px;
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.radio-btn {
+  color: white;
+  font-family: "Bodoni Moda", serif;
+  margin-top: -20px;
+}
+
+.add-space {
+  padding-left: 10px;
+}
+
+input,
+textarea {
+  color: white;
+  font-family: "Bodoni Moda", serif;
+  font-size: 15px;
+}
+
+.radio-container {
+  margin-top: -7px;
+}
+
+button {
+  background-color: #2ea043;
+  width: 20%;
+  color: white;
+  font-family: "Bodoni Moda", serif;
+}
+
+/* TODO:
+  Towards the end of the project if I have time I need
+  to learn how to step down in ng-classes to reach the element I need
+  to change the styles to. But for now the ::ng-deep is helping to override
+  current limitations with angular material custom themes
+*/
+::ng-deep.mat-form-field-underline {
+  background-color: white !important;
+}
+
+::ng-deep.mat-radio-outer-circle {
+  border-color: white;
+}
