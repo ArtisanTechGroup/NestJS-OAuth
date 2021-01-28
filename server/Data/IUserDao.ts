@@ -1,31 +1,22 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { IUser } from '../Model/IUser';
+import { MockUser } from '../Model/MockUser';
 
 @Injectable()
 export class UserService {
-  // move all this to a dao and call to that in here
-  // makes this dao
-  private readonly userArray: IUser[] = [
-    {
-      id: '0',
-      name: 'Josh',
-      email: 'jg@gmail.com',
-      blogUrl: 'https://github.blog/author/josh/',
-      twitterHandle: '@jg22',
-      company: 'Artisan',
-      location: 'Kansas City',
-      hireable: false,
-      bio: 'I am pretty cool',
-    },
-  ];
+  userData = MockUser;
+
+  private readonly userArray: IUser[] = this.userData;
   getUser(id: string): IUser {
     const user = this.findUser(id);
+    // need messages or what the data object coming in looks like
     return { ...user };
   }
 
   updateUser(id: string, updatedUser: IUser): IUser {
     const user = this.findUser(id);
     const newUserData = { ...user, ...updatedUser };
+    // need messages or what the data object going out looks like
     return newUserData;
   }
 
