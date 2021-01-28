@@ -3,6 +3,7 @@ import { UserFormService } from './user-form.service';
 import { IUser } from './interfaces/user.interface';
 import { UserForm } from './dto/user-form.dto';
 
+// get rid of userform names. just user in the backend
 @Controller('user')
 export class UserFormController {
   constructor(private readonly formService: UserFormService) {}

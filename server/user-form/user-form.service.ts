@@ -3,6 +3,8 @@ import { IUser } from './interfaces/user.interface';
 
 @Injectable()
 export class UserFormService {
+  // move all this to a dao and call to that in here
+  // makes this dao
   private readonly userArray: IUser[] = [
     {
       id: '0',
@@ -27,6 +29,7 @@ export class UserFormService {
     return newUserData;
   }
 
+  // convert value from service to message value
   private findUser(id: string) {
     const user = this.userArray.find((user) => user.id === id);
     if (!user) {
