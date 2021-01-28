@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { UserFormController } from './user-form.controller';
-import { UserFormService } from './user-form.service';
+import { UserFormController } from '../Data/UserController';
+import { UserFormService } from '../Data/IUserDao';
 
 @Module({
   controllers: [UserFormController],

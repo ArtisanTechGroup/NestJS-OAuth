@@ -4,9 +4,9 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppServerModule } from '../src/main.server';
 import { AppService } from './app.service';
-import { UserFormController } from './user-form/user-form.controller';
-import { UserFormService } from './user-form/user-form.service';
-import { UserFormModule } from './user-form/user-form.module';
+import { UserFormController } from './Data/UserController';
+import { UserFormService } from './Data/IUserDao';
+import { UserFormModule } from './Common/UserModule';
 
 @Module({
   imports: [

@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { IUser } from './interfaces/user.interface';
+import { IUser } from '../Model/IUser';
 
 @Injectable()
 export class UserFormService {

@@ -1,7 +1,7 @@
 import { Controller, Get, Body, Param, Patch } from '@nestjs/common';
-import { UserFormService } from './user-form.service';
-import { IUser } from './interfaces/user.interface';
-import { UserForm } from './dto/user-form.dto';
+import { UserFormService } from './IUserDao';
+import { IUser } from '../Model/IUser';
+import { UserForm } from '../Model/IUserDto';
 
 // get rid of userform names. just user in the backend
 @Controller('user')
