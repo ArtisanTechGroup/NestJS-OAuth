@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { IUser } from '../Model/IUser';
 
 @Injectable()
-export class UserFormService {
+export class UserService {
   // move all this to a dao and call to that in here
   // makes this dao
   private readonly userArray: IUser[] = [
