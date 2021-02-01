@@ -20,9 +20,11 @@ export class UserFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private userService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userData$ = this.userService
-      .getData()
-      .pipe(tap((user) => this.userForm.patchValue(user)));
+    this.userData$ = this.userService.getData('id').pipe(
+      tap((user) => {
+        this.userForm.patchValue(user);
+      })
+    );
     this.userForm = this.fb.group({
       name: '',
       email: ['', [Validators.email]],

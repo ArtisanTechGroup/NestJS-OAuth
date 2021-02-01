@@ -6,11 +6,11 @@ import { MockUser } from '../Model/MockUser';
 export class UserService {
   userData = MockUser;
 
-  private readonly userArray: IUser[] = this.userData;
+  private readonly userObject: IUser = this.userData;
   getUser(id: string): IUser {
     const user = this.findUser(id);
     // need messages or what the data object coming in looks like
-    return { ...user };
+    return user;
   }
 
   updateUser(id: string, updatedUser: IUser): IUser {
@@ -21,8 +21,8 @@ export class UserService {
   }
 
   // convert value from service to message value
-  private findUser(id: string) {
-    const user = this.userArray.find((user) => user.id === id);
+  private findUser(id: string): IUser {
+    const user = this.userObject;
     if (!user) {
       throw new NotFoundException('Could not find user');
     }

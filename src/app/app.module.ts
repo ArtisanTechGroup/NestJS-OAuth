@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     SweetAlert2Module,
     MatIconModule,
     MatRadioModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
