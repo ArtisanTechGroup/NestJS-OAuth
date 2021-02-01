@@ -21,7 +21,7 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData$ = this.userService
-      .getData('id')
+      .getData()
       .pipe(tap((user) => this.userForm.patchValue(user)));
     this.userForm = this.fb.group({
       name: '',
