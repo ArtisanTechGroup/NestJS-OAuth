@@ -1,9 +1,8 @@
-import { Controller, Get, Body, Param, Patch } from '@nestjs/common';
+import { Controller, Get, Body, Param, Put } from '@nestjs/common';
 import { UserService } from './IUserDao';
 import { IUser } from '../Model/IUser';
 import { User } from '../Model/IUserDto';
 
-// get rid of userform names. just user in the backend
 @Controller('user')
 export class UserController {
   constructor(private readonly formService: UserService) {}
@@ -14,9 +13,11 @@ export class UserController {
     return { ...user };
   }
 
-  @Patch(':id')
+  @Put(':id')
   updateUser(@Body() createUserDto: User, @Param('id') id: string): IUser {
+    console.log(createUserDto, 'user dto');
     const updatedUser = this.formService.updateUser(id, createUserDto);
+    console.log(updatedUser, 'updated user');
     return { ...updatedUser };
   }
 }

@@ -3,7 +3,7 @@ import { IFormData } from './data/IFormData';
 import { FormData } from './data/mock-data';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -15,12 +15,19 @@ export class UserDataService {
   }
 
   getData(id: string): Observable<IFormData> {
-    // return of(FormData).pipe(delay(1000));
+    of(FormData).pipe(delay(1000));
     return this.http.get<IFormData>(`http://localhost:4200/api/user/${id}`);
   }
 
-  updateUser(updatedUser: IFormData): Observable<boolean> {
-    this.data = { ...updatedUser };
-    return of(true).pipe(delay(1000));
+  updateUser(updatedUser: IFormData, id: string): Observable<boolean> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    // of(true).pipe(delay(1000));
+    console.log(headers);
+    console.log(updatedUser);
+    return this.http.put<boolean>(
+      `http://localhost:4200/api/user/${id}`,
+      updatedUser,
+      { headers }
+    );
   }
 }

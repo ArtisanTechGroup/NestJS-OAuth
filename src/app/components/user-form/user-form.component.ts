@@ -44,7 +44,7 @@ export class UserFormComponent implements OnInit {
     };
   }
 
-  onSubmit() {
+  onSubmit(id: string) {
     if (this.userForm.status === formValidityValue) {
       Swal.fire({
         icon: 'success',
@@ -63,6 +63,9 @@ export class UserFormComponent implements OnInit {
       });
       return;
     }
-    this.userService.updateUser(this.userForm.value);
+    this.userService.updateUser(this.userForm.value, id);
+    console.log();
+    console.log(this.userForm.value, 'value');
+    console.log(id, 'Id');
   }
 }
