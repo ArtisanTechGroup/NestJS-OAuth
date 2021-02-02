@@ -1,23 +1,23 @@
 import { Controller, Get, Body, Param, Put } from '@nestjs/common';
 import { UserService } from './IUserDao';
-import { IUser } from '../Model/IUser';
 import { User } from '../Model/IUserDto';
+import { UserMessage } from '../Web/UserMessage';
+import { IUser } from '../Model/IUser';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly formService: UserService) {}
 
   @Get(':id')
-  getUser(@Param('id') id: string): IUser {
+  getUser(@Param('id') id: string): UserMessage {
     const user = this.formService.getUser(id);
-    return { ...user };
+    return new UserMessage(user);
   }
 
   @Put(':id')
-  updateUser(@Body() createUserDto: User, @Param('id') id: string): IUser {
-    console.log(createUserDto, 'user dto');
-    const updatedUser = this.formService.updateUser(id, createUserDto);
+  updateUser(@Body() createUser: IUser, @Param('id') id: string): UserMessage {
+    const updatedUser = this.formService.updateUser(id, createUser);
     console.log(updatedUser, 'updated user');
-    return { ...updatedUser };
+    return new UserMessage(updatedUser);
   }
 }
