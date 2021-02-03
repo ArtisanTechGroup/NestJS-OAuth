@@ -17,14 +17,14 @@ export class UserDataService {
 
   getData(id: string): Observable<IFormData> {
     of(FormData).pipe(delay(1000));
-    return this.http.get<IFormData>(`${environment.uri}/api/user/${id}`);
+    return this.http.get<IFormData>(`${environment.defaultUri}/api/user/${id}`);
   }
 
   updateUser(updatedUser: IFormData, id: string): Observable<boolean> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     of(true).pipe(delay(1000));
     return this.http.put<boolean>(
-      `${environment.uri}/api/user/${id}`,
+      `${environment.defaultUri}/api/user/${id}`,
       updatedUser,
       { headers }
     );

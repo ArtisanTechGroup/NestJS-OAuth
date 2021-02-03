@@ -5,10 +5,10 @@ import { config } from './Config/Configuration';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: `${config.uri}`,
+    origin: `${config.defaultPort}`,
   });
   app.setGlobalPrefix('api');
-  await app.listen(config.port);
+  await app.listen(process.env.PORT || `${config.defaultPort}`);
 }
 
 bootstrap();
