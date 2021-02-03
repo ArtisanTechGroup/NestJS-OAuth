@@ -3,7 +3,7 @@ import { IUser } from 'server/Model/IUser';
 export class UserMessage {
   name: string;
   email: string;
-  blog: string;
+  blogUrl: string;
   twitterHandle?: string;
   company: string;
   location: string;
@@ -13,7 +13,7 @@ export class UserMessage {
   constructor(user: IUser) {
     this.name = user.name;
     this.email = user.email;
-    this.blog = user.blogUrl;
+    this.blogUrl = user.blogUrl;
     this.twitterHandle = user.twitterHandle;
     this.company = user.company;
     this.location = user.location;

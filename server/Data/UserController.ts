@@ -1,6 +1,5 @@
 import { Controller, Get, Body, Param, Put } from '@nestjs/common';
-import { UserService } from './IUserDao';
-import { User } from '../Model/IUserDto';
+import { UserService } from '../Biz/IUserService';
 import { UserMessage } from '../Web/UserMessage';
 import { IUser } from '../Model/IUser';
 
@@ -17,7 +16,6 @@ export class UserController {
   @Put(':id')
   updateUser(@Body() createUser: IUser, @Param('id') id: string): UserMessage {
     const updatedUser = this.formService.updateUser(id, createUser);
-    console.log(updatedUser, 'updated user');
     return new UserMessage(updatedUser);
   }
 }
