@@ -21,9 +21,7 @@ export class UserDataService {
 
   updateUser(updatedUser: IFormData, id: string): Observable<boolean> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    // of(true).pipe(delay(1000));
-    console.log(headers);
-    console.log(updatedUser);
+    of(true).pipe(delay(1000));
     return this.http.put<boolean>(
       `http://localhost:4200/api/user/${id}`,
       updatedUser,
