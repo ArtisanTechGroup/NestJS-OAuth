@@ -1,5 +1,5 @@
-export interface IFormData {
-  id: string;
+export interface IUser {
+  id?: string;
   name: string;
   email: string;
   blogUrl: string;

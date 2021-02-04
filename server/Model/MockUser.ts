@@ -1,6 +1,6 @@
-import { IFormData } from '../data/IFormData';
+import { IUser } from './IUser';
 
-export const FormData: IFormData = {
+export const MockUser: IUser = {
   id: '0',
   name: 'Josh Ganote',
   email: 'jg@gmail.com',
