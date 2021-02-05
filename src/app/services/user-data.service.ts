@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import {  } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root',
