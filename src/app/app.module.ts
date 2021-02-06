@@ -22,7 +22,12 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
 @NgModule({
-  declarations: [AppComponent, UserFormComponent, LoadingSpinnerComponent, LoginPageComponent],
+  declarations: [
+    AppComponent,
+    UserFormComponent,
+    LoadingSpinnerComponent,
+    LoginPageComponent,
+  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
@@ -37,7 +42,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     MatIconModule,
     MatRadioModule,
     HttpClientModule,
-    OAuthModule,
+    OAuthModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

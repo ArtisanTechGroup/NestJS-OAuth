@@ -4,12 +4,11 @@ import { MockUser } from '../Model/MockUser';
 
 @Injectable()
 export class UserService {
+  private userObject: IUser;
 
-private userObject: IUser;
-
-constructor() {
-  this.userObject = MockUser;
-}
+  constructor() {
+    this.userObject = MockUser;
+  }
 
   getUser(id: string): IUser {
     const user = this.findUser(id);
@@ -24,9 +23,9 @@ constructor() {
 
   private findUser(id: string): IUser {
     const user = this.userObject;
-   if (!user) {
-     throw new NotFoundException('Could not find user');
-   }
-   return user;
- }
+    if (!user) {
+      throw new NotFoundException('Could not find user');
+    }
+    return user;
+  }
 }

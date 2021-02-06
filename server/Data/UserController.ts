@@ -10,22 +10,13 @@ export class UserController {
   constructor(private readonly formService: UserService) {}
 
   @Get('signin/callback')
-  getUser(@Param('id') id: string, @Req() req: Request, res: Response): UserMessage {
-    const {query} = req;
-    const {code} = query;
-
+  getUser(
+    @Param('id') id: string,
+    @Req() req: Request,
+    res: Response
+  ): UserMessage {
     const user = this.formService.getUser(id);
     return new UserMessage(user);
-
-    // if(!code) {
-    //   return res.send({
-    //     query,
-    //     code,
-    //   });
-    // }
-
-
-    
   }
 
   @Put(':id')

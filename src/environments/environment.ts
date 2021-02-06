@@ -5,6 +5,9 @@
 export const environment = {
   production: false,
   defaultUri: 'http://localhost:4200',
+  redirectUri: 'http://localhost:4200/signin/callback',
+  clientId: '1e743fa5e24492690d6a',
+  clientSecret: '1bb240daf31d4be29c4faa03adbae43b50f8aa38',
 };
 
 /*
