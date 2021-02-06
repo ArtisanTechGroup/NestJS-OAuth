@@ -20,7 +20,7 @@ export class UserFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private userService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userData$ = this.userService.getData('id').pipe(
+    this.userData$ = this.userService.getData().pipe(
       tap((user) => {
         this.userForm.patchValue(user);
       })

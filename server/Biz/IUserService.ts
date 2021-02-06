@@ -10,18 +10,18 @@ export class UserService {
     this.userObject = MockUser;
   }
 
-  getUser(id: string): IUser {
-    const user = this.findUser(id);
+  getUser(): IUser {
+    const user = this.findUser();
     return user;
   }
 
-  updateUser(id: string, updatedUser: IUser): IUser {
-    const user = this.findUser(id);
+  updateUser(updatedUser: IUser): IUser {
+    const user = this.findUser();
     const newUserData = { ...user, ...updatedUser };
     return newUserData;
   }
 
-  private findUser(id: string): IUser {
+  private findUser(): IUser {
     const user = this.userObject;
     if (!user) {
       throw new NotFoundException('Could not find user');

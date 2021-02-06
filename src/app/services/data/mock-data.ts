@@ -1,7 +1,7 @@
 import { IFormData } from '../data/IFormData';
 
 export const FormData: IFormData = {
-  id: '0',
+  //id: '0',
   name: 'Josh Ganote',
   email: 'jg@gmail.com',
   blogUrl: 'https://github.blog/author/joshganote/',

@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import {  } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +15,11 @@ export class UserDataService {
     this.data = { ...FormData };
   }
 
-  getData(id: string): Observable<IFormData> {
+  getData(): Observable<IFormData> {
     of(FormData).pipe(delay(1000));
-    return this.http.get<IFormData>(`${environment.defaultUri}/api/user/${id}`);
+    return this.http.get<IFormData>(
+      `${environment.defaultUri}/api/user/signin/callback`
+    );
   }
 
   updateUser(updatedUser: IFormData, id: string): Observable<boolean> {

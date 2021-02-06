@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, HttpModule } from '@nestjs/common';
 import { AngularUniversalModule } from '@nestjs/ng-universal';
 import { join } from 'path';
 import { AppServerModule } from '../src/main.server';
@@ -13,6 +13,7 @@ import { ConfigModule } from '@nestjs/config';
       viewsPath: join(process.cwd(), 'dist/NestJS-OAuth/browser'),
     }),
     ConfigModule.forRoot(),
+    HttpModule,
   ],
   controllers: [UserController],
   providers: [UserService],
